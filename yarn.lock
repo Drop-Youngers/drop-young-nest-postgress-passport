@@ -661,7 +661,7 @@
   resolved "https://registry.yarnpkg.com/@nestjs/passport/-/passport-7.1.6.tgz#608bb265dfd85602aa74bbceacc012ffb2e9d25d"
   integrity sha512-iHD/4D01CsKKWg7kUzo4yGNS4m90z1an0eUz+6nBlE5VeEOuCzhGFoBKAt0OKLJLOTEsJKuj4C2b5QfjqXVTyQ==
 
-"@nestjs/platform-express@^8.0.0":
+"@nestjs/platform-express@^8.2.6":
   version "8.2.6"
   resolved "https://registry.yarnpkg.com/@nestjs/platform-express/-/platform-express-8.2.6.tgz#48ab8741776dbb7dd5204a401151bf21e06bb503"
   integrity sha512-wbPqXrLdeokfMCHkWBHgFobCVL4OKRAOJIFGNlT/3u4JIJndoGBIuSDQohhY2o7Ue0JIYqKw+PyXiN4y/iUEng==
@@ -1855,10 +1855,10 @@ clamp@^1.0.1:
   resolved "https://registry.yarnpkg.com/clamp/-/clamp-1.0.1.tgz#66a0e64011816e37196828fdc8c8c147312c8634"
   integrity sha1-ZqDmQBGBbjcZaCj9yMjBRzEshjQ=
 
-class-transformer@^0.4.0:
-  version "0.4.1"
-  resolved "https://registry.yarnpkg.com/class-transformer/-/class-transformer-0.4.1.tgz#eb86449fb5dc8333acbf880c96214acfa0d8dedf"
-  integrity sha512-mbBtth1BFa+pN2fmx6/NmMNxxyu9Mw9rx3rzKWBH7yoG+bfSoJOnEJ3qmB6yEKvoO502zUxSV2AqN7EUypC2Tg==
+class-transformer@0.4.0:
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/class-transformer/-/class-transformer-0.4.0.tgz#b52144117b423c516afb44cc1c76dbad31c2165b"
+  integrity sha512-ETWD/H2TbWbKEi7m9N4Km5+cw1hNcqJSxlSYhsLsNjQzWWiZIYA1zafxpK9PwVfaZ6AqR5rrjPVUBGESm5tQUA==
 
 class-validator@^0.13.1:
   version "0.13.2"
@@ -3062,7 +3062,7 @@ has@^1.0.3:
   dependencies:
     function-bind "^1.1.1"
 
-helmet@^4.6.0:
+helmet@^4.6.2:
   version "4.6.0"
   resolved "https://registry.yarnpkg.com/helmet/-/helmet-4.6.0.tgz#579971196ba93c5978eb019e4e8ec0e50076b4df"
   integrity sha512-HVqALKZlR95ROkrnesdhbbZJFi/rIVSoNq6f3jA/9u6MIbTsPh3xZwihjeI5+DO/2sOV6HMHooXcEOuwskHpTg==
@@ -5851,7 +5851,7 @@ typeorm-seeding@^1.6.1:
     reflect-metadata "0.1.13"
     yargs "15.3.1"
 
-typeorm@^0.2.34:
+typeorm@^0.2.41:
   version "0.2.41"
   resolved "https://registry.yarnpkg.com/typeorm/-/typeorm-0.2.41.tgz#88758101ac158dc0a0a903d70eaacea2974281cc"
   integrity sha512-/d8CLJJxKPgsnrZWiMyPI0rz2MFZnBQrnQ5XP3Vu3mswv2WPexb58QM6BEtmRmlTMYN5KFWUz8SKluze+wS9xw==
