@@ -8,6 +8,11 @@ import { getRepository, Repository } from 'typeorm';
 import { toUserDto } from 'src/shared/mappers/mapper';
 import { ResponseService } from 'src/utils/response/response.service';
 import { EResponseType } from 'src/shared/enums/EResponseType';
+import {
+  paginate,
+  Pagination,
+  IPaginationOptions,
+} from 'nestjs-typeorm-paginate';
 
 @Injectable()
 export class UsersService {
@@ -16,6 +21,11 @@ export class UsersService {
     private readonly userRepository: Repository<User>,
     private readonly responseService: ResponseService,
   ) {}
+
+  async paginate(options: IPaginationOptions): Promise<Pagination<User>> {
+    return paginate<User>(this.userRepository, options);
+  }
+
   public async create(createUserDto: CreateUserDto): Promise<ResponseDto> {
     const {
       firstName,

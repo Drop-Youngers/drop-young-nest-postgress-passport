@@ -1,4 +1,6 @@
+import { User } from './entities/user.entity';
 import { Public } from './../../decorators/public-decorator.decorator';
+import { Pagination } from 'nestjs-typeorm-paginate';
 import {
   Controller,
   Get,
@@ -6,6 +8,9 @@ import {
   Body,
   Patch,
   Param,
+  DefaultValuePipe,
+  ParseIntPipe,
+  Query,
   Delete,
 } from '@nestjs/common';
 import { UsersService } from './users.service';
@@ -24,10 +29,16 @@ export class UsersController {
     return this.usersService.create(createUserDto);
   }
 
-  @Get()
-  @Public()
-  findAll() {
-    return this.usersService.findAll();
+  @Get('')
+  async index(
+    @Query('page', new DefaultValuePipe(1), ParseIntPipe) page = 1,
+    @Query('limit', new DefaultValuePipe(10), ParseIntPipe) limit = 10,
+  ): Promise<Pagination<User>> {
+    limit = limit > 100 ? 100 : limit;
+    return this.usersService.paginate({
+      page,
+      limit,
+    });
   }
 
   @Get(':id')
