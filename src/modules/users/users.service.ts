@@ -4,7 +4,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { ResponseDto } from 'src/shared/dto/response.dto';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
-import { Repository } from 'typeorm';
+import { getRepository, Repository } from 'typeorm';
 import { toUserDto } from 'src/shared/mappers/mapper';
 import { ResponseService } from 'src/utils/response/response.service';
 import { EResponseType } from 'src/shared/enums/EResponseType';
@@ -63,11 +63,12 @@ export class UsersService {
   }
 
   async findByEmail(email: string): Promise<User> {
-    return await this.userRepository.findOne({
-      where: {
-        email: email,
-      },
-    });
+    const user = await getRepository(User)
+      .createQueryBuilder()
+      .addSelect('User.password')
+      .where('User.email = :email', { email })
+      .getOne();
+    return user;
   }
 
   findAll() {

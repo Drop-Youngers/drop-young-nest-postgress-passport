@@ -76,6 +76,7 @@ export class User {
   @Column({
     type: 'varchar',
     nullable: false,
+    select: false,
   })
   @Min(8)
   @Max(16)
