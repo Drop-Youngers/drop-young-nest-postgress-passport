@@ -16,6 +16,7 @@ export class CreateUserDto {
 
   @ApiProperty({
     required: true,
+    example: 'John',
   })
   @IsNotEmpty()
   @IsString()
@@ -23,6 +24,7 @@ export class CreateUserDto {
 
   @ApiProperty({
     required: true,
+    example: 'Doe',
   })
   @IsString()
   @IsNotEmpty()
@@ -30,6 +32,7 @@ export class CreateUserDto {
 
   @ApiProperty({
     required: true,
+    example: '+254712345678',
   })
   @IsNotEmpty()
   @IsPhoneNumber()
@@ -37,6 +40,7 @@ export class CreateUserDto {
 
   @ApiProperty({
     required: true,
+    example: 'testing@gmail.com',
   })
   @IsNotEmpty()
   @IsEmail()
@@ -44,6 +48,7 @@ export class CreateUserDto {
 
   @ApiProperty({
     required: true,
+    example: 'nyagatare',
   })
   @IsNotEmpty()
   @IsString()
@@ -51,6 +56,7 @@ export class CreateUserDto {
 
   @ApiProperty({
     required: true,
+    example: 'female',
   })
   @IsString()
   @IsNotEmpty()
@@ -58,6 +64,7 @@ export class CreateUserDto {
 
   @ApiProperty({
     required: true,
+    example: 'https://example.com',
   })
   @IsUrl()
   @IsNotEmpty()
@@ -65,6 +72,7 @@ export class CreateUserDto {
 
   @ApiProperty({
     required: true,
+    example: 1234567890123456,
   })
   @IsNumber()
   @IsNotEmpty()
@@ -72,6 +80,7 @@ export class CreateUserDto {
 
   @ApiProperty({
     required: true,
+    example: 'password',
   })
   @IsNotEmpty()
   @IsString()
@@ -79,24 +88,28 @@ export class CreateUserDto {
 
   @ApiProperty({
     required: false,
+    example: 'single',
   })
   @IsString()
   marital_status: EMaritalStatus;
 
   @ApiProperty({
     required: false,
+    example: 'active',
   })
   @IsNotEmpty()
   account_status: EAccountStatus;
 
   @ApiProperty({
     required: true,
+    example: 12,
   })
   @IsNumber()
   age: number;
 
   @ApiProperty({
     required: false,
+    example: 'admin',
   })
   @IsNotEmpty()
   user_type: EUserType;

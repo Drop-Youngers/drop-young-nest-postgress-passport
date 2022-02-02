@@ -62,6 +62,14 @@ export class UsersService {
     return response;
   }
 
+  async findByEmail(email: string): Promise<User> {
+    return await this.userRepository.findOne({
+      where: {
+        email: email,
+      },
+    });
+  }
+
   findAll() {
     return `This action returns all users`;
   }

@@ -1,3 +1,4 @@
+import { JwtAuthGuard } from './guards/jwt-auth.guard';
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
@@ -9,6 +10,8 @@ import { TypeOrmConfigService } from './database/typeorm-config.service';
 import { ApartmentsModule } from './modules/apartments/apartments.module';
 import { UsersModule } from './modules/users/users.module';
 import { ResponseModule } from './utils/response/response.module';
+import { AuthModule } from './modules/auth/auth.module';
+import { APP_GUARD } from '@nestjs/core';
 
 @Module({
   imports: [
@@ -23,8 +26,15 @@ import { ResponseModule } from './utils/response/response.module';
     ApartmentsModule,
     UsersModule,
     ResponseModule,
+    AuthModule,
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [
+    AppService,
+    {
+      provide: APP_GUARD,
+      useClass: JwtAuthGuard,
+    },
+  ],
 })
 export class AppModule {}

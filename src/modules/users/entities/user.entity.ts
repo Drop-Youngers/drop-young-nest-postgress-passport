@@ -8,8 +8,10 @@ import {
   PrimaryGeneratedColumn,
   CreateDateColumn,
   UpdateDateColumn,
+  BeforeInsert,
 } from 'typeorm';
 import { IsEmail, Max, Min } from 'class-validator';
+import * as bcrypt from 'bcryptjs';
 
 @Entity()
 export class User {
@@ -123,4 +125,13 @@ export class User {
 
   @Column({ default: true })
   isActive: boolean;
+
+  @BeforeInsert()
+  async hashPassword() {
+    this.password = await bcrypt.hash(this.password, 8);
+  }
+
+  async validatePassword(password: string): Promise<boolean> {
+    return bcrypt.compare(password, this.password);
+  }
 }
