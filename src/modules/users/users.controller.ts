@@ -1,3 +1,4 @@
+import { Public } from './../../decorators/public-decorator.decorator';
 import {
   Controller,
   Get,
@@ -10,7 +11,7 @@ import {
 import { UsersService } from './users.service';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
-import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
+import { ApiTags } from '@nestjs/swagger';
 
 @Controller('users')
 @ApiTags('Users')
@@ -22,8 +23,8 @@ export class UsersController {
     return this.usersService.create(createUserDto);
   }
 
-  @ApiBearerAuth()
   @Get()
+  @Public()
   findAll() {
     return this.usersService.findAll();
   }
