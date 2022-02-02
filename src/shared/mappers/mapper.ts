@@ -30,7 +30,6 @@ export const toUserDto = (userData: User): CreateUserDto => {
     marital_status,
     age,
     user_type,
-    account_status: EAccountStatus.ACTIVE,
     signature,
   };
   return userDto;

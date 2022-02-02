@@ -3,6 +3,7 @@ import { EMaritalStatus } from './../../../shared/enums/EMaritalStatus';
 import { ApiProperty } from '@nestjs/swagger';
 import {
   IsEmail,
+  IsEnum,
   IsNotEmpty,
   IsNumber,
   IsPhoneNumber,
@@ -90,15 +91,9 @@ export class CreateUserDto {
     required: false,
     example: 'single',
   })
+  @IsEnum(EMaritalStatus)
   @IsString()
   marital_status: EMaritalStatus;
-
-  @ApiProperty({
-    required: false,
-    example: 'active',
-  })
-  @IsNotEmpty()
-  account_status: EAccountStatus;
 
   @ApiProperty({
     required: true,
