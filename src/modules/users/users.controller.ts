@@ -11,7 +11,7 @@ import {
   DefaultValuePipe,
   ParseIntPipe,
   Query,
-  Delete,
+  Delete
 } from '@nestjs/common';
 import { UsersService } from './users.service';
 import { CreateUserDto } from './dto/create-user.dto';
@@ -32,12 +32,12 @@ export class UsersController {
   @Get('')
   async index(
     @Query('page', new DefaultValuePipe(1), ParseIntPipe) page = 1,
-    @Query('limit', new DefaultValuePipe(10), ParseIntPipe) limit = 10,
+    @Query('limit', new DefaultValuePipe(10), ParseIntPipe) limit = 10
   ): Promise<Pagination<User>> {
     limit = limit > 100 ? 100 : limit;
     return this.usersService.paginate({
       page,
-      limit,
+      limit
     });
   }
 

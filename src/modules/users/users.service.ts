@@ -11,7 +11,7 @@ import { EResponseType } from 'src/shared/enums/EResponseType';
 import {
   paginate,
   Pagination,
-  IPaginationOptions,
+  IPaginationOptions
 } from 'nestjs-typeorm-paginate';
 
 @Injectable()
@@ -19,7 +19,7 @@ export class UsersService {
   constructor(
     @InjectRepository(User)
     private readonly userRepository: Repository<User>,
-    private readonly responseService: ResponseService,
+    private readonly responseService: ResponseService
   ) {}
 
   async paginate(options: IPaginationOptions): Promise<Pagination<User>> {
@@ -38,11 +38,11 @@ export class UsersService {
       national_id,
       marital_status,
       age,
-      user_type,
+      user_type
     } = createUserDto;
 
     const userExists: User | false = await this.userRepository.findOne({
-      where: { email },
+      where: { email }
     });
     if (userExists) {
       throw new HttpException('User already exists', HttpStatus.BAD_REQUEST);
@@ -58,7 +58,7 @@ export class UsersService {
       national_id,
       marital_status,
       age,
-      user_type,
+      user_type
     });
     const result = toUserDto(user);
     await this.userRepository.save(user);
@@ -67,7 +67,7 @@ export class UsersService {
       'User created successfully',
       201,
       result,
-      EResponseType.SUCCESS,
+      EResponseType.SUCCESS
     );
     return response;
   }
@@ -82,7 +82,7 @@ export class UsersService {
   }
 
   findAll() {
-    return `This action returns all users`;
+    return 'This action returns all users';
   }
 
   findOne(id: number) {
